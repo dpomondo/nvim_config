@@ -13,12 +13,12 @@
 │       └── lualine.lua
 └── README.md
 ```
-### How and where we get our neovim:
-```
-# stolen from install recipies found at:
-#   [https://github.com/nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
-# ... and modified
+## How and where we get our neovim:
+Much of this has been stolen from install recipies found at:
+    [https://github.com/nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
+... and modified.
 
+```
 # download the latest nightly:
 cd ~/Downloads
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
