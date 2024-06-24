@@ -16,7 +16,7 @@
 ### How and where we get our neovim:
 ```
 # stolen from install recipies found at:
-#   https://github.com/nvim-lua/kickstart.nvim and modified
+#   [https://github.com/nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 # ... and modified
 
 # download the latest nightly:
