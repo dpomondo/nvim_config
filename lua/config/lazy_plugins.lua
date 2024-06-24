@@ -35,7 +35,6 @@
 --]]
 --
 require("lazy").setup({
-	require 'plugins.lualine'
+	require 'plugins.lualine',
+	require 'config.colors',
 })
-
--- require('lualine').setup()

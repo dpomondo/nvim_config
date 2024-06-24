@@ -22,21 +22,21 @@
     \  \:\       /__/:/   
      \__\/       \__\/    
 --]]
---
+
 --[[
 --	make the key do the thing
 --	see `:help vim.keymap.set()`
 --]]
---
+
 vim.opt.hlsearch = true			-- highlight matches as you type
 -- <ESC> in Normal mode will remove search highlighting
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
------------- better buffer navigation ----------------------
+------------ better buffer bouncing ------------------------
 vim.keymap.set('n', '<leader>n', '<cmd>bnext<CR>')
 vim.keymap.set('n', '<leader>p', '<cmd>bprev<CR>')
 
------------- masochists don't use arrows! ------------------
+------------ arrow keys are for the weak -------------------
 vim.keymap.set({'n', 'i'}, '<Up>', '<nop>')
 vim.keymap.set({'n', 'i'}, '<Down>', '<nop>')
 vim.keymap.set({'n', 'i'}, '<Left>', '<nop>')

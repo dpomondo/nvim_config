@@ -43,4 +43,9 @@ sudo tar -C /opt -xzvf nvim-linux64.tar.gz
 ```
 # place it in the $PATH by linking it to /usr/local/bin
 sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
+
+# nvim must corrupt ALL the vi instances!
+sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 500
+sudo update-alternatives --install /usr/bin/vim vim /usr/local/bin/nvim 500
+sudo update-alternatives --install /usr/bin/nvim nvim /usr/local/bin/nvim 500
 ```
