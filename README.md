@@ -1,22 +1,32 @@
 ```
-~/.config/nvim/
+./
 ├── init.lua
+├── lazy-lock.json
 ├── lua/
 │   ├── after/
 │   ├── config/
-│   │   ├── colors.lua
 │   │   ├── keymaps.lua
 │   │   ├── lazy_bootstrap.lua
 │   │   ├── lazy_plugins.lua
 │   │   └── options.lua
 │   └── plugins/
-│       └── lualine.lua
+│       ├── colors.lua
+│       ├── lualine.lua
+│       ├── nvim-lspconfig.lua
+│       ├── nvim-treesitter.lua
+│       ├── telescope.lua
+│       └── which-keys.lua
 └── README.md
 ```
 ## How and where we get our neovim:
-Much of this has been stolen from install recipies found at:
+Much of this has been stolen from install recipes found at:
     [https://github.com/nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 ... and modified.
+For `zshell` add this to your `zshrc` or else the comments act weird:
+```
+setopt interactivecomments
+```
+
 
 ```
 # download the latest nightly:

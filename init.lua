@@ -63,7 +63,7 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- do the thing
-require 'lua.config.options'
-require 'lua.config.keymaps'
-require 'lua.config.lazy_bootstrap'
-require 'lua.config.lazy_plugins'
+require 'config.options'
+require 'config.keymaps'
+require 'config.lazy_bootstrap'     -- this loads our package manager
+require 'config.lazy_plugins'       -- this tells our package manager to do its thing

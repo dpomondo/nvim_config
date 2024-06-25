@@ -33,8 +33,8 @@ vim.opt.hlsearch = true			-- highlight matches as you type
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 ------------ better buffer bouncing ------------------------
-vim.keymap.set('n', '<leader>n', '<cmd>bnext<CR>')
-vim.keymap.set('n', '<leader>p', '<cmd>bprev<CR>')
+vim.keymap.set('n', '<leader>n', '<cmd>bnext<CR>', { desc = "[N]ext Buffer" })
+vim.keymap.set('n', '<leader>p', '<cmd>bprev<CR>', { desc = "[P]revious Buffer" })
 
 ------------ arrow keys are for the weak -------------------
 vim.keymap.set({'n', 'i'}, '<Up>', '<nop>')
