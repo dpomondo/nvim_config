@@ -19,8 +19,10 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 
 return {
-    'nvim-telescope/telescope.nvim', -- tag = '0.1.8',
-      branch = '0.1.x',
+    'nvim-telescope/telescope.nvim', 
+      tag = '0.1.8',
+      -- branch = '0.1.x',
+      -- commit = 'f2bfde705ac752c52544d5cfa8b0aee0a766c1ed',
       dependencies = {
           { 'nvim-lua/plenary.nvim' },
           {
@@ -36,11 +38,11 @@ return {
               enabled = vim.g.have_nerd_font
           },
       },
-      -- extensions = {    -- https://github.com/nvim-telescope/telescope-ui-select.nvim
-        -- ["ui-select"] = {
-          -- require("telescope.themes").get_dropdown {
-          --   -- even more opts
-          -- }
+      extensions = {    -- https://github.com/nvim-telescope/telescope-ui-select.nvim
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown, {
+            --   even more opts
+          }
 
           -- pseudo code / specification for writing custom displays, like the one
           -- for "codeactions"
@@ -55,8 +57,8 @@ return {
           --      do the following
           --   codeactions = false,
           -- }
-        -- }
-      -- },
+        }       -- end ["ui-select"]
+      },        --end extensions
       config = function()
           pcall(require('telescope').setup)
           pcall(require('telescope').load_extension, 'fzf')

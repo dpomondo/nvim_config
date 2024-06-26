@@ -13,5 +13,12 @@ return {
 		-- init = function()
 		--           vim.cmd.colorscheme "catppuccin"
 		-- end,
-    }
+    },
+    {
+        "marko-cerovac/material.nvim",
+		priority = 1000,
+		-- init = function()
+		-- 	vim.cmd.colorscheme 'tokyonight-storm'
+		-- end,
+    },
 }
