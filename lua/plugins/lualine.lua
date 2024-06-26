@@ -14,10 +14,18 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-	    pcall(require('lualine').setup,
-            { options = {
+        local diff_icon = require'nvim-web-devicons'.get_icon('diff', { default = true })
+	    require('lualine').setup({
+             options = {
 			    theme = 'powerline_dark',
-                },
+             },      -- end options
+            sections = {
+                -- lualine_b = { {'branch', icon = ""}, 'diff', 'diagnostics'  },
+                lualine_b = {
+                        { 'branch',  icon = { "", color = {fg="green"}}},
+                        { 'diff', icon = { diff_icon, color = {fg="yellow"}} },
+                        'diagnostics'  },
+                },  -- end sections
             })
     end,
     }
