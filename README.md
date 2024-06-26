@@ -1,5 +1,5 @@
 ```
-./
+~/.config/nvim/
 ├── init.lua
 ├── lazy-lock.json
 ├── lua/
@@ -26,10 +26,8 @@ For `zshell` add this to your `zshrc` or else the comments act weird:
 ```
 setopt interactivecomments
 ```
-
-
+### download the latest nightly:
 ```
-# download the latest nightly:
 cd ~/Downloads
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
 ```

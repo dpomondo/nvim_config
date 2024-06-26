@@ -50,3 +50,5 @@ vim.opt.hidden = true		-- allow files to hide
 vim.opt.hlsearch = true			-- highlight matches as you type
 vim.opt.ignorecase = true	-- searches ignore capiTALizatiOn
 vim.opt.smartcase = true
+
+vim.g.python3_host_prog = '/usr/bin/python3'

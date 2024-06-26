@@ -30,17 +30,17 @@ return {
               return vim.fn.executable 'make' == 1
             end,
           },
-          { 'nvim-telescope/telescope-ui-select.nvim' },
+          -- { 'nvim-telescope/telescope-ui-select.nvim' },
           {
               'nvim-tree/nvim-web-devicons',
               enabled = vim.g.have_nerd_font
           },
       },
-      extensions = {    -- https://github.com/nvim-telescope/telescope-ui-select.nvim
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown {
-            -- even more opts
-          }
+      -- extensions = {    -- https://github.com/nvim-telescope/telescope-ui-select.nvim
+        -- ["ui-select"] = {
+          -- require("telescope.themes").get_dropdown {
+          --   -- even more opts
+          -- }
 
           -- pseudo code / specification for writing custom displays, like the one
           -- for "codeactions"
@@ -55,8 +55,8 @@ return {
           --      do the following
           --   codeactions = false,
           -- }
-        }
-      },
+        -- }
+      -- },
       config = function()
           pcall(require('telescope').setup)
           pcall(require('telescope').load_extension, 'fzf')
