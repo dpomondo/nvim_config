@@ -19,7 +19,7 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 
 return {
-    'nvim-telescope/telescope.nvim', 
+    'nvim-telescope/telescope.nvim',
       tag = '0.1.8',
       -- branch = '0.1.x',
       -- commit = 'f2bfde705ac752c52544d5cfa8b0aee0a766c1ed',
@@ -32,7 +32,7 @@ return {
               return vim.fn.executable 'make' == 1
             end,
           },
-          -- { 'nvim-telescope/telescope-ui-select.nvim' },
+          { 'nvim-telescope/telescope-ui-select.nvim' },
           {
               'nvim-tree/nvim-web-devicons',
               enabled = vim.g.have_nerd_font
@@ -73,5 +73,6 @@ return {
           vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "[F]ind [H]elp tags" })
           vim.keymap.set('n', '<leader>fj', builtin.jumplist, { desc = "[F]ind [J]umplist" })
           vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = "[F]ind [R]egisters" })
+          vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = "[F]ind [Q]quickfix" })
       end,
 }
