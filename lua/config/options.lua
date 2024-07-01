@@ -39,8 +39,8 @@ vim.opt.breakindent = true	-- line breaks maintain indentation levels
 vim.opt.showmode = false	-- statusline already has mode!
 
 vim.opt.expandtab = true	-- tabs become spaces
-vim.opt.tabstop = 4		-- how MANY spaces tabs become
-vim.opt.shiftwidth = 4		-- how many spaces in auto-indent
+vim.opt.tabstop = 2		-- how MANY spaces tabs become
+vim.opt.shiftwidth = 2		-- how many spaces in auto-indent
 
 ------------ buffer behavior -------------------------------
 vim.opt.undofile = true		-- save undo history

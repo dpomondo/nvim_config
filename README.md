@@ -1,5 +1,5 @@
 ```
-~/.config/nvim/
+./
 ├── init.lua
 ├── lazy-lock.json
 ├── lua/
@@ -11,11 +11,17 @@
 │   │   └── options.lua
 │   └── plugins/
 │       ├── colors.lua
+│       ├── completion.lua
+│       ├── indentline.lua
 │       ├── lualine.lua
+│       ├── neo-tree.lua
+│       ├── null-ls.lua
 │       ├── nvim-lspconfig.lua
 │       ├── nvim-treesitter.lua
 │       ├── telescope.lua
 │       └── which-keys.lua
+├── old/
+│   └── lspconfig.lua
 └── README.md
 ```
 ## How and where we get our neovim:
@@ -47,11 +53,13 @@ sudo chmod a+rX /opt/nvim-linux64
 #           note: default tar behavior is to overwrite files at the location
 sudo tar -C /opt -xzvf nvim-linux64.tar.gz
 ```
-### Make neovim accessible:
+Make neovim accessible:
 ```
 # place it in the $PATH by linking it to /usr/local/bin
 sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
-
+```
+And just in case we have to deal with competing vi/vim installs:
+```
 # nvim must corrupt ALL the vi instances!
 sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 500
 sudo update-alternatives --install /usr/bin/vim vim /usr/local/bin/nvim 500

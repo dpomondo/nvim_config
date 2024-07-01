@@ -62,14 +62,6 @@ vim.g.maplocalleader = " "
 -- emojis for nerds, but nerds hate emojis so they call them "nerd fonts"
 vim.g.have_nerd_font = true
 
-Ensure_Installed_Lsp = {
-    "clangd",
-    "lua_ls",
-    "pylsp", -- pylsp
-    -- "pyright",
-    "marksman",
-}
-
 -- do the thing
 require("config.options")
 require("config.keymaps")
