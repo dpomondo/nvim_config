@@ -17,149 +17,137 @@
 
 --]]
 return {
-    {
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      { "williamboman/mason.nvim", config = true },
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      {
         "j-hui/fidget.nvim",
         config = function()
-            require("fidget").setup()
-            require('fidget').notification.notify("Fidget is set up")
+          require("fidget").setup({})
         end,
+      },
+      { "folke/neodev.nvim", opts = {} },
     },
-    {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = Ensure_Installed_Lsp,
-                    -- "clangd",
-                    -- "lua_ls",
-                    -- "pylsp", -- pylsp
-                    -- -- "pyright",
-                    -- "marksman",
-            })
-        end,
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            local lspconfig = require("lspconfig")
-            vim.api.nvim_create_autocmd("LspAttach", {
-                callback = function(args)
-                    -- local opts = { buffer = args.buf }
-                    -- wrapping these only really helps unclutter the which-keys
-                    -- window, by keeping unsupported methods from claiming keymaps
-                    local client = vim.lsp.get_client_by_id(args.data.client_id)
-                    if client.supports_method("textDocument/hover") then
-                        vim.keymap.set(
-                            "n",
-                            "K",
-                            vim.lsp.buf.hover,
-                            { buffer = args.buf, desc = "Display info on symbol under cursor" }
-                        )
-                    end
-                    if client.supports_method("textDocument/codeAction") then
-                        vim.keymap.set(
-                            { "n" },
-                            "<leader>ca",
-                            vim.lsp.buf.code_action,
-                            { buffer = args.buf, desc = "[C]ode [A]ction" }
-                        )
-                    end
-                    if client.supports_method("textDocument/declaration") then
-                        vim.keymap.set(
-                            { "n" },
-                            "<leader>gD",
-                            vim.lsp.buf.declaration,
-                            { buffer = args.buf, desc = "[G]oto [D]eclaration" }
-                        )
-                    end
-                    if client.supports_method("textDocument/definition") then
-                        vim.keymap.set(
-                            { "n" },
-                            "<leader>gd",
-                            vim.lsp.buf.definition,
-                            { buffer = args.buf, desc = "[G]oto [D]efinition" }
-                        )
-                    end
-                    if client.supports_method("textDocument/implementation") then
-                        vim.keymap.set(
-                            { "n" },
-                            "<leader>gi",
-                            vim.lsp.buf.implementation,
-                            { buffer = args.buf, desc = "[G]oto [I]mplementation" }
-                        )
-                    end
-                    if client.supports_method("textDocument/documentSymbol") then
-                        vim.keymap.set(
-                            "n",
-                            "<leader>gs",
-                            vim.lsp.buf.document_symbol,
-                            { buffer = args.buf, desc = "[G]oto [S]ymbols" }
-                        )
-                    end
-                    if client.supports_method("textDocument/rename") then
-                        vim.keymap.set(
-                            "n",
-                            "<leader>gr",
-                            vim.lsp.buf.rename,
-                            { buffer = args.buf, desc = "[G]oto [R]ename" }
-                        )
-                    end
-                    if client.supports_method("textDocument/signatureHelp") then
-                        vim.keymap.set(
-                            "n",
-                            "<leader>gS",
-                            vim.lsp.buf.signature_help,
-                            { buffer = args.buf, desc = "[G]oto [S]ignature Help" }
-                        )
-                    end
-                    if client.supports_method("textDocument/typeDefinition") then
-                        vim.keymap.set(
-                            { "n" },
-                            "<leader>gt",
-                            vim.lsp.buf.type_definition,
-                            { buffer = args.buf, desc = "[G]oto [T]ype Definition" }
-                        )
-                    end
-                    if client.supports_method("textDocument/formatting") then
-                        vim.keymap.set(
-                            "n",
-                            "<leader>gf",
-                            vim.lsp.buf.format,
-                            { buffer = args.buf, desc = "[G]oto [F]ormatting" }
-                        )
-                    end
-                end,
-            }) -- end nvim_create_autocmd
-            lspconfig.lua_ls.setup({
-                diagnostics = {
-                    globals = {
-                        "vim",
-                    },
-                },
-            })
-            lspconfig.clangd.setup({})
-            -- lspconfig.pyright.setup({})
-            lspconfig.pylsp.setup({}) -- pylsp
-            lspconfig.marksman.setup({})
-        end,
-    },
-    {
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
-        config = function()
-            require("mason-tool-installer").setup({
-                ensure_installed = {
-                    "black",
-                    "clang-format",
-                    "pylint",
-                    "stylua",
-                },
-            })
-        end,
-    },
-    { "folke/neodev.nvim", opts = {} },
+    config = function()
+      local lspconfig = require("lspconfig")
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          -- local opts = { buffer = args.buf }
+          -- wrapping these only really helps unclutter the which-keys
+          -- window, by keeping unsupported methods from claiming keymaps
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client ~= nil then
+            if client.supports_method("textDocument/hover") then
+              vim.keymap.set( "n", "K", vim.lsp.buf.hover,
+                { buffer = args.buf, desc = "Display info on symbol under cursor" }
+              )
+            end
+            if client.supports_method("textDocument/codeAction") then
+              vim.keymap.set( { "n" }, "<leader>ca", vim.lsp.buf.code_action,
+                { buffer = args.buf, desc = "[C]ode [A]ction" }
+              )
+            end
+            if client.supports_method("textDocument/declaration") then
+              vim.keymap.set( { "n" }, "<leader>gD", vim.lsp.buf.declaration,
+                { buffer = args.buf, desc = "[G]oto [D]eclaration" }
+              )
+            end
+            if client.supports_method("textDocument/definition") then
+              vim.keymap.set( { "n" }, "<leader>gd", require("telescope.builtin").lsp_definitions,
+                -- require('telescope.builtin').lsp_type_definitions,
+                -- vim.lsp.buf.definition,
+                { buffer = args.buf, desc = "[G]oto [D]efinition" }
+              )
+            end
+            if client.supports_method("textDocument/implementation") then
+              vim.keymap.set( { "n" }, "<leader>gi", require("telescope.builtin").lsp_implementations,
+                -- vim.lsp.buf.implementation,
+                { buffer = args.buf, desc = "[G]oto [I]mplementation" }
+              )
+            end
+            if client.supports_method("textDocument/documentSymbol") then
+              vim.keymap.set( "n", "<leader>gs", -- vim.lsp.buf.document_symbol, 
+                require("telescope.builtin").lsp_document_symbols,
+                { buffer = args.buf, desc = "[G]oto [S]ymbols" }
+              )
+            end
+            if client.supports_method("textDocument/rename") then
+              vim.keymap.set( "n", "<leader>gr", vim.lsp.buf.rename,
+                { buffer = args.buf, desc = "[G]oto [R]ename" }
+              )
+            end
+            if client.supports_method("textDocument/signatureHelp") then
+              vim.keymap.set( "n", "<leader>gS", vim.lsp.buf.signature_help,
+                { buffer = args.buf, desc = "[G]oto [S]ignature Help" }
+              )
+            end
+            if client.supports_method("textDocument/typeDefinition") then
+              vim.keymap.set( { "n" }, "<leader>gt", vim.lsp.buf.type_definition,
+                { buffer = args.buf, desc = "[G]oto [T]ype Definition" }
+              )
+            end
+            if client.supports_method("textDocument/formatting") then
+              vim.keymap.set( "n", "<leader>gf", vim.lsp.buf.format,
+                { buffer = args.buf, desc = "[G]oto [F]ormatting" }
+              )
+            end
+          end -- end client ~= nil
+        end, -- end callback function
+      }) -- end nvim_create_autocmd
+
+      -- here we start mucking abouts
+      -- we extend lsp capabilities by adding cmp
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+      local servers = {
+        clangd = {
+          cmd = {
+            "clangd",
+            "--query-driver=/usr/bin/*gcc",
+          },
+        },
+        lua_ls = {
+          diagnostics = {
+            globals = {
+              "vim",
+            },
+          },
+        },
+        pylsp = {},
+        marksman = {},
+      } -- end servers
+
+      require("mason").setup()
+
+      -- grab a list of just lsp server names
+      local ensure_installed = vim.tbl_keys(servers or {})
+      vim.list_extend(ensure_installed, {
+        "stylua", -- Used to format Lua code
+        "black",
+        -- "clang-format",
+        "pylint",
+      })
+
+      require("mason-tool-installer").setup({
+        ensure_installed = ensure_installed,
+      })
+
+      require("mason-lspconfig").setup({
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            -- This handles overriding only values explicitly passed
+            -- by the server configuration above. Useful when disabling
+            -- certain features of an LSP (for example, turning off formatting for tsserver)
+            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+            require("lspconfig")[server_name].setup(server)
+          end,
+        },
+      })
+    end, -- end config function
+  },
 }

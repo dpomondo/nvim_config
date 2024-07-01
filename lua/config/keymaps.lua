@@ -44,3 +44,6 @@ vim.keymap.set({'n', 'i'}, '<Right>', '<nop>')
 
 -- no hitting the HELP key accidentally
 vim.keymap.set({'n', 'i', 'v'}, '<F1>', '<ESC>')
+
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "open [E]rror message" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "open [Q]uickfix" })

@@ -19,13 +19,6 @@
 
 return {
     {
-        "j-hui/fidget.nvim",
-        config = function()
-            require("fidget").setup()
-            require('fidget').notification.notify("Setting up which-keys")
-        end,
-    },
-    {
       "folke/which-key.nvim",
       event = "VeryLazy",
       config = function()

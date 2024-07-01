@@ -39,8 +39,8 @@ return {
             enabled = vim.g.have_nerd_font,
             -- tag = "nerd-v2-compat",
         },
-    },               -- end dependencies
-    extensions = {   -- https://github.com/nvim-telescope/telescope-ui-select.nvim
+    },             -- end dependencies
+    extensions = { -- https://github.com/nvim-telescope/telescope-ui-select.nvim
         ["ui-select"] = {
             require("telescope.themes").get_dropdown, {
             --   even more opts
@@ -75,6 +75,7 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "[F]ind [H]elp tags" })
         vim.keymap.set('n', '<leader>fj', builtin.jumplist, { desc = "[F]ind [J]umplist" })
         vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = "[F]ind [R]egisters" })
-        vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = "[F]ind [Q]quickfix" })
+        -- vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = "[F]ind [Q]quickfix" })
+        vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
     end,
 }
