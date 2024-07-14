@@ -24,10 +24,11 @@ return {
       config = function()
           vim.opt.timeout = true
           vim.opt.timeoutlen = 300
-          require('which-key').setup({})
-          require('which-key').register({
-              ['<leader>f'] = { name = "[F]ind", _="which_key_ignore" },
-              ['<leader>g'] = { name = "[G]oto", _="which_key_ignore" }
+          require('which-key').setup( {
+            { "<leader>f", group = "[F]ind" },
+            { "<leader>f_", hidden = true },
+            { "<leader>g", group = "[G]oto" },
+            { "<leader>g_", hidden = true },
           })
       end,
       opts = {},
