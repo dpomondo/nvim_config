@@ -32,18 +32,20 @@ For `zshell` add this to your `zshrc` or else the comments act weird:
 ```
 setopt interactivecomments
 ```
-### download the latest nightly:
-```
-cd ~/Downloads
-curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-```
-### Give neovim a new home:
+### Clear out the old version & prepare for the new
 ```
 # the following may be required, depending on whether there is a previous install or not
 sudo rm -rf /opt/nvim-linux64
 sudo mkdir -p /opt/nvim-linux64
 sudo chmod a+rX /opt/nvim-linux64
-
+```
+### download the latest nightly:
+This step is for normal, standard, generic computers & OSes.
+```
+cd ~/Downloads
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
+```
+```
 # extract 
 #   -x  ##  extract
 #   -z  ##  use gzip to decompress
@@ -53,7 +55,24 @@ sudo chmod a+rX /opt/nvim-linux64
 #           note: default tar behavior is to overwrite files at the location
 sudo tar -C /opt -xzvf nvim-linux64.tar.gz
 ```
-Make neovim accessible:
+### Clone the repo and prepare to build!
+this step is for things like the raspberry pi, that can't run the pre-compiled linux version.
+```
+git clone --depth 1 https://github.com/neovim/neovim
+```
+Ensure build dependencies are installed & updated
+```
+sudo apt-get install ninja-build gettext cmake curl build-essential
+```
+Make:
+```
+make CMAKE_BUILD_TYPE=releases
+```
+Install in the proper spot:
+```
+sudo make CMAKE_INSTALL_PREFIX=/opt/nvim-linux64 install
+```
+### Make neovim accessible:
 ```
 # place it in the $PATH by linking it to /usr/local/bin
 sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
