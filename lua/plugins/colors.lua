@@ -2,9 +2,9 @@ return {
 	{
 		'folke/tokyonight.nvim',
 		priority = 1000,
-		init = function()
-			vim.cmd.colorscheme 'tokyonight-storm'
-		end,
+		-- init = function()
+		-- 	vim.cmd.colorscheme 'tokyonight-storm'
+		-- end,
     },
     { 
         "catppuccin/nvim", 
@@ -17,8 +17,8 @@ return {
     {
         "marko-cerovac/material.nvim",
 		priority = 1000,
-		-- init = function()
-		-- 	vim.cmd.colorscheme 'tokyonight-storm'
-		-- end,
+		init = function()
+			vim.cmd.colorscheme 'material-oceanic'
+		end,
     },
 }

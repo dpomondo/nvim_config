@@ -106,12 +106,12 @@ return {
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       local servers = {
-        clangd = {
-          cmd = {
-            "clangd",
-            "--query-driver=/usr/bin/*gcc",
-          },
-        },
+        -- clangd = {
+        --   cmd = {
+        --     "clangd",
+        --     "--query-driver=/usr/bin/*gcc",
+        --   },
+        -- },
         lua_ls = {
           diagnostics = {
             globals = {
