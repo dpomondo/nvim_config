@@ -42,6 +42,11 @@ return {
     },             -- end dependencies
     extensions = { -- https://github.com/nvim-telescope/telescope-ui-select.nvim
         ["ui-select"] = {
+            -- if telescope.nvim fails to update and subsequently fails to load, especially
+            -- after an update to neovim, it's because this next line gets called without 
+            -- telescope-ui-select.nvim having been installed. Comment out the next section 
+            -- and rerun the package installer [":Lazy"] to install all the dependencies first. 
+            -- Then the next line should work after retoration.
             require("telescope.themes").get_dropdown, {
             --   even more opts
         }
