@@ -1,0 +1,10 @@
+-- local host = vim.fn.hostname()
+-- vim.notify("local name is: " .. host)
+-- local colors = "tokyonight-storm"
+-- if host == "squirrel2" then
+--   colors = "material-oceanic" 
+-- end
+-- local status_ok, _ = pcall(vim.cmd.colorscheme, colors)
+-- if not status_ok then
+--   vim.notify("error loading " .. colors .. " colorscheme")
+-- end
