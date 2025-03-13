@@ -32,7 +32,7 @@ return {
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
-      local lspconfig = require("lspconfig")
+      -- local lspconfig = require("lspconfig")
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           -- local opts = { buffer = args.buf }
@@ -63,9 +63,11 @@ return {
               )
             end
             if client.supports_method("textDocument/implementation") then
-              vim.keymap.set( { "n" }, "<leader>gi", require("telescope.builtin").lsp_implementations,
+              vim.keymap.set( { "n" }, "<leader>gr", -- require("telescope.builtin").lsp_implementations,
+                require("telescope.builtin").lsp_references,
                 -- vim.lsp.buf.implementation,
-                { buffer = args.buf, desc = "[G]oto [I]mplementation" }
+                -- vim.lsp.buf.references,
+                { buffer = args.buf, desc = "[G]oto [R]eferences" }
               )
             end
             if client.supports_method("textDocument/documentSymbol") then
@@ -75,8 +77,8 @@ return {
               )
             end
             if client.supports_method("textDocument/rename") then
-              vim.keymap.set( "n", "<leader>gr", vim.lsp.buf.rename,
-                { buffer = args.buf, desc = "[G]oto [R]ename" }
+              vim.keymap.set( "n", "<leader>gn", vim.lsp.buf.rename,
+                { buffer = args.buf, desc = "[G]oto re[N]ame" }
               )
             end
             if client.supports_method("textDocument/signatureHelp") then
@@ -104,12 +106,12 @@ return {
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       local servers = {
-        clangd = {
-          cmd = {
-            "clangd",
-            "--query-driver=/usr/bin/*gcc",
-          },
-        },
+        -- clangd = {
+        --   cmd = {
+        --     "clangd",
+        --     "--query-driver=/usr/bin/*gcc",
+        --   },
+        -- },
         lua_ls = {
           diagnostics = {
             globals = {
@@ -128,7 +130,7 @@ return {
       vim.list_extend(ensure_installed, {
         "stylua", -- Used to format Lua code
         "black",
-        -- "clang-format",
+        "clang-format",
         "pylint",
       })
 

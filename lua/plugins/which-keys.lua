@@ -18,21 +18,19 @@
 --]]
 
 return {
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = function()
-      vim.opt.timeout = true
-      vim.opt.timeoutlen = 300
-      require('which-key').setup({})
-      -- require('which-key').register({
-      require('which-key').add({
-        { "<leader>f",  group = "[F]ind" },
-        { "<leader>f_", hidden = true },
-        { "<leader>g",  group = "[G]oto" },
-        { "<leader>g_", hidden = true },
-      })
-    end,
-    opts = {},
-  }
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      config = function()
+          vim.opt.timeout = true
+          vim.opt.timeoutlen = 300
+          require('which-key').setup( {
+            { "<leader>f", group = "[F]ind" },
+            { "<leader>f_", hidden = true },
+            { "<leader>g", group = "[G]oto" },
+            { "<leader>g_", hidden = true },
+          })
+      end,
+      opts = {},
+    }
 }

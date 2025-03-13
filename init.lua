@@ -66,4 +66,5 @@ vim.g.have_nerd_font = true
 require("config.options")
 require("config.keymaps")
 require("config.lazy_bootstrap") -- this loads our package manager
-require("config.lazy_plugins")   -- this tells our package manager to do its thingkkk
+require("config.lazy_plugins")   -- this tells our package manager to do its thing
+require("after.hostname")

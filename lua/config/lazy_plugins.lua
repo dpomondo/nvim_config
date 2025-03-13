@@ -39,3 +39,4 @@
 -- 	require 'config.colors',
 -- })
 require("lazy").setup("plugins") -- ALL lua files in lua/plugins gets sourced & merged automatically
+
