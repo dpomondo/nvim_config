@@ -29,26 +29,31 @@
 --]]--------------------------------------------------------
 
 ------------ looks & feels ---------------------------------
-vim.opt.number = true		-- line numbers in the gutter
-vim.opt.numberwidth = 5		-- keep consistent
-vim.opt.signcolumn = 'yes'	-- signs in the gutter
-vim.opt.cursorline = true		-- where am i?
-vim.opt.scrolloff = 5		-- keep some context when scrolling
+vim.opt.number = true		      -- line numbers in the gutter
+vim.opt.numberwidth = 5		    -- keep consistent
+vim.opt.signcolumn = 'yes'	  -- signs in the gutter
+vim.opt.cursorline = true		  -- where am i?
+vim.opt.scrolloff = 5		      --  keep some context when scrolling
 
-vim.opt.breakindent = true	-- line breaks maintain indentation levels
-vim.opt.showmode = false	-- statusline already has mode!
+vim.opt.breakindent = true	  -- line breaks maintain indentation levels
+vim.opt.showmode = false	    -- statusline already has mode!
 
-vim.opt.expandtab = true	-- tabs become spaces
-vim.opt.tabstop = 2		-- how MANY spaces tabs become
-vim.opt.shiftwidth = 2		-- how many spaces in auto-indent
+vim.opt.expandtab = true	    -- tabs become spaces
+vim.opt.tabstop = 2		        -- how MANY spaces tabs become
+vim.opt.shiftwidth = 2		    -- how many spaces in auto-indent
 
 ------------ buffer behavior -------------------------------
-vim.opt.undofile = true		-- save undo history
-vim.opt.hidden = true		-- allow files to hide
+vim.opt.undofile = true		    -- save undo history
+vim.opt.hidden = true		      -- allow files to hide
 
 ------------ searches & rescues ----------------------------
-vim.opt.hlsearch = true			-- highlight matches as you type
-vim.opt.ignorecase = true	-- searches ignore capiTALizatiOn
+vim.opt.hlsearch = true			  -- highlight matches as you type
+vim.opt.ignorecase = true	    -- searches ignore capiTALizatiOn
 vim.opt.smartcase = true
+
+------------- no one likes Disney --------------------------
+vim.opt.mouse = ""            -- kill the mouse!
+vim.opt.mousescroll = "ver:0,hor:0"
+                              -- no mouse scrolling, fer sure
 
 vim.g.python3_host_prog = '/usr/bin/python3'

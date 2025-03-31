@@ -28,7 +28,6 @@
 --	see `:help vim.keymap.set()`
 --]]
 
-vim.opt.hlsearch = true			-- highlight matches as you type
 -- <ESC> in Normal mode will remove search highlighting
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
