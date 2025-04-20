@@ -59,11 +59,13 @@ local host = vim.fn.hostname()
 -- vim.notify("local name is: " .. host)
 local colors = "default"
 if host == "squirrel2" then
-  colors = "tokyonight-storm"
+  colors = "tokyonight-night"
 elseif host == "wetcow" then
   colors = "material-oceanic"
 elseif host == "Zachariah" then
   colors = "tokyonight-moon"
+elseif host == "chimera2" then
+  colors = "tokyonight-storm"
 end
 local status_ok, _ = pcall(vim.cmd.colorscheme, colors)
 if not status_ok then
