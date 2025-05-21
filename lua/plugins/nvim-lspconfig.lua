@@ -175,12 +175,19 @@ return {
             "stylua", -- Used to format Lua code
             "lua_ls",
             "black",
-            "clangd",
-            "clang-format",
+            -- "clangd",
+            -- "clang-format",
             "pylsp",
             "pylint",
             "marksman",
         })
+        local host = vim.fn.hostname()
+        if host ~= "wetcow" then
+            vim.list_extend(ensure_installed, {
+                "clangd",
+                "clang-format",
+            })
+        end
 
         -- mason-tool-installer automates installation of designated tools, using mason
         require("mason-tool-installer").setup({
