@@ -21,20 +21,7 @@ return {
     dependencies = {
         { "mason-org/mason.nvim", config = true },
         { "mason-org/mason-lspconfig.nvim",
-            -- opts = {
-            --     ensure_installed = {
-            --         "stylua",     -- Used to format Lua code
-            --         "lua_ls",
-            --         "black",
-            --         "clangd",
-            --         "clang-format",
-            --         "pylsp",
-            --         "pylint",
-            --         "marksman",
-            --     },
-            --     automatic_enable = true,
-            -- },
-            -- after = "mason.nvim",
+            after = "mason.nvim",
         },
         { "WhoIsSethDaniel/mason-tool-installer" },
         {
@@ -46,10 +33,8 @@ return {
         -- { "folke/neodev.nvim",    opts = {} },
     },
     config = function()
-        -- local lspconfig = require("lspconfig")
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(args)
-                -- local opts = { buffer = args.buf }
                 -- wrapping these only really helps unclutter the which-keys
                 -- window, by keeping unsupported methods from claiming keymaps
                 local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -121,39 +106,6 @@ return {
 
         -- THIS WHOL THING has been moved to <rtp>/after/lsp/<servername>.lua
         -- local servers = {
-        --     -- turn off the following when using nvim on raspberry pi -- clangd isn't available on pi's
-        --     -- clangd = {
-        --     --     cmd = {
-        --     --         "clangd",
-        --     --         "--query-driver=/usr/bin/*gcc",
-        --     --     },
-        --     -- },
-        --     -- lua_ls = {
-        --     --     settings = {
-        --     --         Lua = {
-        --     --             runtime = {
-        --     --                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        --     --                 version = "LuaJIT",
-        --     --             },
-        --     --             diagnostics = {
-        --     --                 globals = {
-        --     --                     "vim",
-        --     --                     "require",
-        --     --                 },
-        --     --             },
-        --     --             workspace = {
-        --     --                 -- Make the server aware of Neovim runtime files
-        --     --                 library = vim.api.nvim_get_runtime_file("", true),
-        --     --             },
-        --     --             -- Do not send telemetry data containing a randomized but unique identifier
-        --     --             telemetry = {
-        --     --                 enable = false,
-        --     --             },
-        --     --         },
-        --     --     },
-        --     -- },
-        --     pylsp = {},
-        --     marksman = {},
         -- } -- end servers
 
         -- mason.nvim adds the ability to install LSPs, linters, etc from inside neovim
@@ -170,46 +122,44 @@ return {
 
         -- grab a list of just lsp server names
         -- local ensure_installed = vim.tbl_keys(servers or {})
-        local ensure_installed = {}
-        vim.list_extend(ensure_installed, {
-            "stylua", -- Used to format Lua code
+        local ensure_installed_mason = {}
+        local ensure_installed_seth = {}
+        vim.list_extend(ensure_installed_mason, {
+            -- "stylua", -- Used to format Lua code
             "lua_ls",
-            "black",
+            -- "black",
             -- "clangd",
             -- "clang-format",
             "pylsp",
-            "pylint",
+            -- "pylint",
             "marksman",
+        })
+        vim.list_extend(ensure_installed_seth, {
+            "stylua", -- Used to format Lua code
+            "black",
+            -- "clangd",
+            -- "clang-format",
+            "pylint",
         })
         local host = vim.fn.hostname()
         if host ~= "wetcow" then
-            vim.list_extend(ensure_installed, {
+            vim.list_extend(ensure_installed_mason, {
                 "clangd",
+            })
+            vim.list_extend(ensure_installed_seth, {
                 "clang-format",
             })
         end
-
-        -- mason-tool-installer automates installation of designated tools, using mason
-        require("mason-tool-installer").setup({
-            ensure_installed = ensure_installed,
-        })
-
         -- actually USING tools requires calling `vim.lsp.enable` on each
         -- installed tool. mason-lspconfig automates this for every tool installed
         -- by mason.nvim
         require("mason-lspconfig").setup({
-            ensure_installed = ensure_installed,
-            -- ensure_installed = {
-            --     "stylua",     -- Used to format Lua code
-            --     "lua_ls",
-            --     "black",
-            --     "clangd",
-            --     "clang-format",
-            --     "pylsp",
-            --     "pylint",
-            --     "marksman",
-            -- },
+            ensure_installed = ensure_installed_mason,
             automatic_enable = true,
+        })
+        -- mason-tool-installer automates installation of designated tools, using mason
+        require("mason-tool-installer").setup({
+            ensure_installed = ensure_installed_seth,
         })
     end,     -- end config function
 }
