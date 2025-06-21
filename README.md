@@ -46,13 +46,17 @@ sudo rm -rf /opt/nvim-linux-x86_64
 sudo mkdir -p /opt/nvim-linux-x86_64
 sudo chmod a+rX /opt/nvim-linux-x86_64
 ```
+or, alternatively if on, say, a Raspberry Pi that requires building from source:
+```
+sudo rm -rf /opt/nvim-linux64 
+```
 #### Download the latest nightly...
 This step is for normal, standard, generic computers & OSes.
 ```
 cd ~/Downloads
 #   -O  ## equivalent to --remote-anme, use the remote file name (with path removed) as the name to save file
 #   -L  ## equivalent to --location, curl will follow reports that the requested file has moived to a new location
-#   -i  ## will include headers for all file locations
+#   -i  ## will include headers for all file locations, if you are into that kind of thing
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz
 ```
 ```

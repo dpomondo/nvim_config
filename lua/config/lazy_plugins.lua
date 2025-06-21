@@ -33,9 +33,5 @@
 --    \::/  /   
 --     \/__/    
 --]]
---
--- require("lazy").setup({
--- 	require 'plugins.lualine',
--- 	require 'config.colors',
--- })
+
 require("lazy").setup("plugins") -- ALL lua files in lua/plugins gets sourced & merged automatically
