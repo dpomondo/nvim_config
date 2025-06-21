@@ -1,9 +1,15 @@
 ```
 ./
+├── after/
+│   └── lsp/
+│       ├── clangd.lua
+│       ├── lua_ls.lua
+│       └── README.md
 ├── init.lua
 ├── lazy-lock.json
 ├── lua/
 │   ├── after/
+│   │   └── hostname.lua
 │   ├── config/
 │   │   ├── keymaps.lua
 │   │   ├── lazy_bootstrap.lua
@@ -13,6 +19,7 @@
 │       ├── colors.lua
 │       ├── completion.lua
 │       ├── indentline.lua
+│       ├── kitty.lua
 │       ├── lualine.lua
 │       ├── neo-tree.lua
 │       ├── null-ls.lua
@@ -35,15 +42,18 @@ setopt interactivecomments
 #### Clear out the old version & prepare for the new
 ```
 # the following may be required, depending on whether there is a previous install or not
-sudo rm -rf /opt/nvim-linux64
-sudo mkdir -p /opt/nvim-linux64
-sudo chmod a+rX /opt/nvim-linux64
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo mkdir -p /opt/nvim-linux-x86_64
+sudo chmod a+rX /opt/nvim-linux-x86_64
 ```
 #### Download the latest nightly...
 This step is for normal, standard, generic computers & OSes.
 ```
 cd ~/Downloads
-curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
+#   -O  ## equivalent to --remote-anme, use the remote file name (with path removed) as the name to save file
+#   -L  ## equivalent to --location, curl will follow reports that the requested file has moived to a new location
+#   -i  ## will include headers for all file locations
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz
 ```
 ```
 # extract 
@@ -53,7 +63,7 @@ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64
 #   -f  ##  next argument is the file to extract
 #   -C  ##  the location for the extraction
 #           note: default tar behavior is to overwrite files at the location
-sudo tar -C /opt -xzvf nvim-linux64.tar.gz
+sudo tar -C /opt -xzvf nvim-linux-x86_64
 ```
 #### ...OR! clone the repo and prepare to build!
 this step is for devices like the raspberry pi that can't run the pre-compiled linux version.
@@ -75,6 +85,10 @@ sudo make CMAKE_INSTALL_PREFIX=/opt/nvim-linux64 install
 #### Make neovim accessible:
 ```
 # place it in the $PATH by linking it to /usr/local/bin
+sudo ln -sf /opt/nvim-linux-x86_64 /usr/local/bin/
+```
+or, if built from source:
+```
 sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
 ```
 And just in case we have to deal with competing vi/vim installs:
