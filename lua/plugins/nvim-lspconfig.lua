@@ -141,15 +141,21 @@ return {
             -- "clang-format",
             "pylint",
         })
-        local host = vim.fn.hostname()
         -- can we check system architecture here?
-        if host ~= "wetcow" then
+        -- local host = vim.fn.hostname()
+        -- if host ~= "wetcow" then
+        -- local system_info = vim.fn.uname()
+        local system_info = vim.uv.os_uname()
+        if system_info.machine ~= "aarch64" then
+            vim.notify("not a raspberry pi, adding clang to ensure_installed")
             vim.list_extend(ensure_installed_mason, {
                 "clangd",
             })
             vim.list_extend(ensure_installed_seth, {
                 "clang-format",
             })
+        else
+            vim.notify("uname.machine is " + system_info.machine + " skiping clang install")
         end
         -- actually USING tools requires calling `vim.lsp.enable` on each
         -- installed tool. mason-lspconfig automates this for every tool installed
