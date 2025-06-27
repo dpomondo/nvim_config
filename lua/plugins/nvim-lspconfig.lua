@@ -142,6 +142,7 @@ return {
             "pylint",
         })
         local host = vim.fn.hostname()
+        -- can we check system architecture here?
         if host ~= "wetcow" then
             vim.list_extend(ensure_installed_mason, {
                 "clangd",

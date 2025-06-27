@@ -25,6 +25,9 @@ return
                         { 'branch',  icon = { "", color = {fg="green"}}},
                         { 'diff', icon = { diff_icon, color = {fg="yellow"}} },
                         'diagnostics'  },
+                lualine_c = {
+                        { 'filename', path = 1, newfile_status = true, },
+                    }, -- end c
                 },  -- end sections
             })
     end,

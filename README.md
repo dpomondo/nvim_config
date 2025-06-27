@@ -21,6 +21,7 @@
 │       ├── indentline.lua
 │       ├── kitty.lua
 │       ├── lualine.lua
+│       ├── markdown.lua
 │       ├── neo-tree.lua
 │       ├── null-ls.lua
 │       ├── nvim-lspconfig.lua

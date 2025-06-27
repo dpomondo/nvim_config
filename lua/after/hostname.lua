@@ -63,9 +63,9 @@ if host == "squirrel2" then
 elseif host == "wetcow" then
   colors = "material-oceanic"
 elseif host == "Zachariah" then
-  colors = "tokyonight-moon"
-elseif host == "chimera2" then
   colors = "tokyonight-storm"
+elseif host == "chimera2" then
+  colors = "tokyonight-moon"
 end
 local status_ok, _ = pcall(vim.cmd.colorscheme, colors)
 if not status_ok then
