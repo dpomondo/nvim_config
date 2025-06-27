@@ -155,7 +155,7 @@ return {
                 "clang-format",
             })
         else
-            vim.notify("uname.machine is " + system_info.machine + " skiping clang install")
+            vim.notify("uname.machine is " .. system_info.machine .. " skiping clang install")
         end
         -- actually USING tools requires calling `vim.lsp.enable` on each
         -- installed tool. mason-lspconfig automates this for every tool installed
