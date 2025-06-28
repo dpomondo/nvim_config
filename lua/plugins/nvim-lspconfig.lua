@@ -26,9 +26,9 @@ return {
         { "WhoIsSethDaniel/mason-tool-installer" },
         {
             "j-hui/fidget.nvim",
-            config = function()
-                require("fidget").setup({})
-            end,
+            -- config = function()
+            --     require("fidget").setup({})
+            -- end,
         },
         -- { "folke/neodev.nvim",    opts = {} },
     },
@@ -147,7 +147,7 @@ return {
         -- local system_info = vim.fn.uname()
         local system_info = vim.uv.os_uname()
         if system_info.machine ~= "aarch64" then
-            vim.notify("not a raspberry pi, adding clang to ensure_installed")
+            vim.notify("not a raspberry pi, adding clangd to ensure_installed")
             vim.list_extend(ensure_installed_mason, {
                 "clangd",
             })
@@ -155,7 +155,7 @@ return {
                 "clang-format",
             })
         else
-            vim.notify("uname.machine is " .. system_info.machine .. " skiping clang install")
+            vim.notify("uname.machine is " .. system_info.machine .. " skipping clangd install")
         end
         -- actually USING tools requires calling `vim.lsp.enable` on each
         -- installed tool. mason-lspconfig automates this for every tool installed
