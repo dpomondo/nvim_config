@@ -68,7 +68,7 @@ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x
 #   -f  ##  next argument is the file to extract
 #   -C  ##  the location for the extraction
 #           note: default tar behavior is to overwrite files at the location
-sudo tar -C /opt -xzvf nvim-linux-x86_64
+sudo tar -C /opt -xzvf nvim-linux-x86_64.tar.gz
 ```
 #### ...OR! clone the repo and prepare to build!
 this step is for devices like the raspberry pi that can't run the pre-compiled linux version.
@@ -90,7 +90,7 @@ sudo make CMAKE_INSTALL_PREFIX=/opt/nvim-linux64 install
 #### Make neovim accessible:
 ```
 # place it in the $PATH by linking it to /usr/local/bin
-sudo ln -sf /opt/nvim-linux-x86_64 /usr/local/bin/
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
 ```
 or, if built from source:
 ```
