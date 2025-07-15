@@ -42,6 +42,7 @@ vim.opt.expandtab = true	    -- tabs become spaces
 vim.opt.tabstop = 4		        -- how MANY spaces tabs become
 vim.opt.shiftwidth = 4		    -- how many spaces in auto-indent
 
+-- vim.opt.foldmethod = "manual"   -- why fold my stuff?!?
 ------------ buffer behavior -------------------------------
 vim.opt.undofile = true		    -- save undo history
 vim.opt.hidden = true		      -- allow files to hide

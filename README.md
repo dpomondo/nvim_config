@@ -1,23 +1,26 @@
 ```
-./
-├── after/
-│   └── lsp/
+.
+├── after
+│   └── lsp
 │       ├── clangd.lua
 │       ├── lua_ls.lua
 │       └── README.md
+├── ftplugin
+│   ├── c.lua
+│   └── lua.lua
 ├── init.lua
-├── lazy-lock.json
-├── lua/
-│   ├── after/
+├── lua
+│   ├── after
 │   │   └── hostname.lua
-│   ├── config/
+│   ├── config
 │   │   ├── keymaps.lua
 │   │   ├── lazy_bootstrap.lua
 │   │   ├── lazy_plugins.lua
 │   │   └── options.lua
-│   └── plugins/
+│   └── plugins
 │       ├── colors.lua
 │       ├── completion.lua
+│       ├── fidget.lua
 │       ├── indentline.lua
 │       ├── kitty.lua
 │       ├── lualine.lua
@@ -28,8 +31,6 @@
 │       ├── nvim-treesitter.lua
 │       ├── telescope.lua
 │       └── which-keys.lua
-├── old/
-│   └── lspconfig.lua
 └── README.md
 ```
 ## How and where we get our neovim:

@@ -65,10 +65,6 @@ vim.g.have_nerd_font = true
 -- do the thing
 require("config.options")
 require("config.keymaps")
-require("config.lazy_bootstrap") -- this loads our package manager
-require("config.lazy_plugins")   -- this tells our package manager to do its thing
-require("after.hostname")
-
--- vim.lsp.config('clangd', { 
--- 	cmd = { "clangd",  "--query-driver=/usr/bin/*gcc" }, 
--- })
+require("config.lazy_bootstrap")    -- this loads our package manager
+require("config.lazy_plugins")      -- this tells our package manager to do its thing
+require("after.hostname")           -- sometimes it is our differences which define us
