@@ -21,10 +21,13 @@ return {
 		vim.keymap.set(
 			"n",
 			"<leader>o",
-			"<cmd>Neotree toggle filesystem reveal left<CR>",
+			"<cmd>Neotree toggle filesystem reveal <CR>",
 			{ desc = "T[o]ggle Neotree" }
 		)
 		require("neo-tree").setup({
+            window = {
+                position = "left",
+            },
 			default_component_configs = {
 				git_status = {
 					symbols = {

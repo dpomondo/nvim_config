@@ -24,6 +24,7 @@ return {
     -- branch = '0.1.x',
     -- commit = 'f2bfde705ac752c52544d5cfa8b0aee0a766c1ed',
     dependencies = {
+        { 'nvim-telescope/telescope-ui-select.nvim' },
         { 'nvim-lua/plenary.nvim' },
         {
             'nvim-telescope/telescope-fzf-native.nvim',
@@ -33,7 +34,6 @@ return {
                 return vim.fn.executable 'make' == 1
             end,
         },
-        { 'nvim-telescope/telescope-ui-select.nvim' },
         {
             'nvim-tree/nvim-web-devicons',
             enabled = vim.g.have_nerd_font,
@@ -47,9 +47,9 @@ return {
             -- telescope-ui-select.nvim having been installed. Comment out the next section 
             -- and rerun the package installer [":Lazy"] to install all the dependencies first. 
             -- Then the next line should work after retoration.
-            require("telescope.themes").get_dropdown, {
+            -- require("telescope.themes").get_dropdown, {
             --   even more opts
-        }
+        -- }
 
       -- pseudo code / specification for writing custom displays, like the one
       -- for "codeactions"
