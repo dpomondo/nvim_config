@@ -20,7 +20,7 @@
 
 return {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
+    -- tag = '0.1.8',
     -- branch = '0.1.x',
     -- commit = 'f2bfde705ac752c52544d5cfa8b0aee0a766c1ed',
     dependencies = {
@@ -47,9 +47,9 @@ return {
             -- telescope-ui-select.nvim having been installed. Comment out the next section 
             -- and rerun the package installer [":Lazy"] to install all the dependencies first. 
             -- Then the next line should work after retoration.
-            -- require("telescope.themes").get_dropdown, {
-            --   even more opts
-        -- }
+            require("telescope.themes").get_dropdown, {
+              -- even more opts
+        }
 
       -- pseudo code / specification for writing custom displays, like the one
       -- for "codeactions"
