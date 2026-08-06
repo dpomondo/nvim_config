@@ -42,5 +42,5 @@ return {
       -- highlight = true, -- treesitter highlighting is enabled by default
       -- languages = {}, -- override or add new parser sources
     })
-  end
+  end,
 }

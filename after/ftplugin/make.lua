@@ -1,0 +1,2 @@
+-- vim.notify("Makefile found, telling comment.nvim what to do because it is stupid")
+-- vim.bo.commentstring = '# %s'
